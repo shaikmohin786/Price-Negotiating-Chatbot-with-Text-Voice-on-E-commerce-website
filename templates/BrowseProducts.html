@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Price Negotiating Chatbot with Text & Voice on E-commerce Website</title>
+    <meta name="keywords" content="" />
+    <meta name="Premium Series" content="" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}" />
+    
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f1f1; /* Background for the whole page */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        #header {
+            background-color: #333;
+            padding: 15px 0;
+            color: white;
+            text-align: center;
+        }
+
+        #logo h1 {
+            font-size: 2.2em;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Navigation Menu */
+        #menu {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        #menu ul {
+            list-style-type: none;
+        }
+
+        #menu ul li {
+            display: inline-block;
+            margin-right: 25px;
+        }
+
+        #menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        #menu ul li a:hover {
+            background-color: #0073e6;
+            border-radius: 5px;
+        }
+
+        /* Main Wrapper */
+        #wrapper {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: transparent; /* Ensuring no background color */
+        }
+
+        /* Page content */
+        #content {
+            background-color: transparent; /* Remove white background behind the content */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: none; /* Remove shadow if needed */
+            margin-bottom: 0; /* Prevent bottom margin for extra space */
+        }
+
+        /* Heading Style */
+        .flower {
+            text-align: center;
+            font-size: 2.2em; /* Increase font size */
+            font-weight: 700;
+            color: #444;
+            margin-bottom: 20px; /* Adjust margin if necessary */
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        /* Post Section Styling */
+        .post {
+            background-color: #fafafa; /* Keep background light gray */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 0; /* No extra space at the bottom of post */
+            display: flex;  /* Enable flexbox */
+            justify-content: center; /* Horizontally center the content */
+            align-items: center; /* Vertically center the content */
+            height: 100%; /* Ensure post takes up full height */
+        }
+
+        .post .entry {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .post .entry p {
+            margin-bottom: 15px;
+        }
+
+        .post .entry a {
+            color: #0073e6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .post .entry a:hover {
+            color: #005bb5;
+        }
+
+        /* Center the table */
+        table {
+            width: 80%;
+            margin: 0 auto; /* Center the table */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px; /* Consistent padding for headers and cells */
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+
+        td {
+            background-color: #fafafa;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            #menu ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            #content {
+                padding: 20px;
+            }
+
+            .flower {
+                font-size: 1.5em;
+            }
+
+            table {
+                width: 100%; /* Full width on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div id="header">
+        <div id="logo">
+            <h1>Price Negotiating Chatbot with Text & Voice on E-commerce Website</h1>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div id="menu">
+        <ul id="main">
+            <li class="current_page_item"><a href="BrowseProducts">Browse Products</a></li>
+            <li><a href="ViewOrders">View Orders</a></li>
+            <li><a href="PostReview">Post Review</a></li>
+            <li><a href="ViewReview">View Reviews</a></li>
+            <li><a href="Logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Wrapper -->
+    <div id="wrapper">
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Heading styled to be on a single line and centered -->
+            <div class="flower">
+                <h1>View Products List Screen</h1>
+            </div>
+
+            <br />
+            <!-- Display Message from Backend -->
+            <div>{{ msg | safe }}</div>
+
+            <br />
+            <!-- Centered Table -->
+            <div class="post">
+                <div class="entry">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Availability</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Product 1</td>
+                                <td>$20.00</td>
+                                <td>In Stock</td>
+                            </tr>
+                            <tr>
+                                <td>Product 2</td>
+                                <td>$25.00</td>
+                                <td>Out of Stock</td>
+                            </tr>
+                            <tr>
+                                <td>Product 3</td>
+                                <td>$30.00</td>
+                                <td>In Stock</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
